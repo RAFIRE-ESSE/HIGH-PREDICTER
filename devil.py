@@ -15,10 +15,10 @@ from keras.layers import LSTM
 yfinance.pdr_override()
 X_train,y_train,t=[],[],"IOB"
 data_devil=yfinance.download(f"{t}.NS")["Close"]
-print(listdir("D_pridict"))
-if t not in listdir("D_pridict"):
-    mkdir(f"D_pridict/{t}")
-    mkdir(f"D_pridict/{t}/sub")
+print(listdir("D_PREDICTER"))
+if t not in listdir("D_PREDICTER"):
+    mkdir(f"D_PREDICTER/{t}")
+    mkdir(f"D_PREDICTER/{t}/sub")
 print(data_devil)
 for i in range(0,len(data_devil),5):
     if (i+5)-1<len(data_devil):
@@ -64,8 +64,8 @@ while True:
         if rec_devil_>high_devil_:
             print(f"{len(y_train)}-{high_devil_}-{rec_devil_}")
             high_devil_=rec_devil_
-            lstm.save(f"D_pridict/{t}/sub/{len(y_train)}_{high_devil_}_{rec_devil_}.keras")
-            lstm.save(f"D_pridict/{t}/high.keras")
+            lstm.save(f"D_PREDICTER/{t}/sub/{len(y_train)}_{high_devil_}_{rec_devil_}.keras")
+            lstm.save(f"D_PREDICTER/{t}/high.keras")
         continue
 
 print(y_train)
