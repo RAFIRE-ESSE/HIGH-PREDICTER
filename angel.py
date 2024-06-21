@@ -18,7 +18,7 @@ X_train,y_train,t=[],[],"IOB"
 data_devil=yfinance.download(f"{t}.NS")["Close"]
 print(data_devil)
 
-lstm=load_model("D_pridict/IOB/sub/1091_727_727.keras")
+lstm=load_model("D_PREDICTER/IOB/sub/1091_727_727.keras")
 lstm.summary()
 
 ang=numpy.array([numpy.array(data_devil[len(data_devil)-4::]).reshape(1, 4)])
